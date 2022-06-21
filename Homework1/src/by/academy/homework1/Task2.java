@@ -33,8 +33,7 @@ public class Task2 {
 		break;
 
 		case "char":{
-			System.out.println("Введите переменную:");
-			//				String x = sc.next();	
+			System.out.println("Введите переменную:");			
 			char x = sc.next().charAt(0);
 			System.out.println((int)x);
 		}
