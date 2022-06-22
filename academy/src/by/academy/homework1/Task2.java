@@ -10,56 +10,56 @@ public class Task2 {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Введите тип данных:");
+		System.out.println("Р’РІРµРґРёС‚Рµ С‚РёРї РґР°РЅРЅС‹С…:");
 			
 		type = sc.nextLine();
 
 		switch (type) {		 
 		case "int": {
-			System.out.println("Введите переменную:");
+			System.out.println("Р’РІРµРґРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ:");
 			if (sc.hasNextInt() ) {
 				int x = sc.nextInt();
 				System.out.println(x%2);
 				}
-			else System.out.println("Некорректные данные!");
+			else System.out.println("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ");
 				}
 		break;
 
 		case "double": {
-			System.out.println("Введите переменную:");
+			System.out.println("Р’РІРµРґРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ:");
 			if (sc.hasNextDouble()) {
 				double x = sc.nextDouble();
 				System.out.println(x*0.7);	 
 				}
-			else System.out.println("Некорректные данные!");
+			else System.out.println("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ");
 		}
 		break;
 
 		case "float":{
-			System.out.println("Введите переменную:");
+			System.out.println("Р’РІРµРґРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ:");
 			if (sc.hasNextFloat()) {
 				float x = sc.nextFloat();
 				System.out.println(x*x);	
 				}
-			else System.out.println("Некорректные данные!");
+			else System.out.println("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ");
 		}
 		break;
 
 		case "char":{
-			System.out.println("Введите переменную:");			
+			System.out.println("Р’РІРµРґРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ:");			
 			char x = sc.next().charAt(0);
 			System.out.println(x+ " " + (int)x);
 		}
 		break;
 
 		case "String":{
-			System.out.println("Введите переменную:");
+			System.out.println("Р’РІРµРґРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ:");
 			String x = sc.nextLine();
 			System.out.println("Hello "+x);	
 			 }
 		break;
 
-		default: System.out.println("Unsupported type");
+		default: System.out.println("Unsupported type!");
 
 		}
 		sc.close();
