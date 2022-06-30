@@ -16,9 +16,14 @@ public class Task3 {
 		System.out.println("Введите слово из четного числа букв:");
 		String second = sc.nextLine();
 		
-			
-		System.out.println(first.substring(0,first.length()/2)+second.substring(second.length()/2));
-	
+		if (first.length() % 2 == 0) {
+			if (second.length() % 2 ==0) {
+				System.out.println(first.substring(0,first.length()/2)+second.substring(second.length()/2));
+						}
+			else System.out.println("Вторая строка содержит нечетное количество символов!");
+			}
+		else System.out.println("Первая строка содержит нечетное количество символов!");	
+
 	sc.close();
 	}
 
