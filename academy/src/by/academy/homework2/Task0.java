@@ -8,24 +8,31 @@ public class Task0 {
 	// Complete the pairs function below.
 	static int pairs(int k, int[] arr) {
 		int pairsCount = 0;
+		int pairsCount1 =0;
 		// write code here
-		//	bubbleSort(arr);
+			bubbleSort(arr);
 		for (int i = 0; i < arr.length-1; i++) {
 			//for (int j = i+1; j < arr.length-1; j++ ) {
 				if (Math.abs(arr[i]-arr[i+1]) == k) {
 					pairsCount++;
 					}
 		}	
-		for (int i = 0; i < arr.length-2; i++) {
-				if (Math.abs(arr[i]-arr[i+2]) == k){
-					pairsCount++;
+		for (int j = 0; j < arr.length-2; j++) {
+				if (Math.abs(arr[j]-arr[j+2]) == k){
+					pairsCount1++;
 					}		
 				}
 			
-		return pairsCount;
+		return pairsCount+pairsCount1;
 		}
 
 	
+		private static void bubbleSort(int[] arr) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 		private static final Scanner scanner = new Scanner(System.in);
 
 		public static void main(String[] args) throws IOException {
