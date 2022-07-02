@@ -16,8 +16,7 @@ public class Task1 {
 		
 		System.out.println("Введите строку");
 		String second = sc.nextLine();
-		
-				
+	
 		if (first.length() == second.length())	{
 			
 			char[] firstArr = first.toCharArray();
@@ -25,13 +24,12 @@ public class Task1 {
 			
 			for (char c : firstArr) {
 				letters[c]++;
-				
 				}
 			
 			for (int i = 0; i < first.length(); i++) {
 				int c = (int) second.charAt(i);
 				
-				if (--letters[c] < 0) {
+				if (letters[c] < 1) {
 					System.out.println("Строки - не перестановка символов");
 					return;
 					}
