@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Deal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		// Напишите программу Deal.java, которая должна имитировать раздачу карт для
 		// игры в покер.
 		// Программа получает число n, задаваемое с консоли пользователем,
@@ -23,8 +23,9 @@ public class Deal {
 
 		System.out.println("Enter number of players from 2 to 10:");
 
-		if (sc.hasNextInt()) {
-			int n = sc.nextInt();
+	if (sc.hasNextInt()) {
+		int n = sc.nextInt();
+		if (( n < 11 )&&( n > 1 )) {
 
 			for (int i = 0; i < 4; i++) {
 				for (int j = 0; j < 13; j++) {
@@ -49,14 +50,14 @@ public class Deal {
 					player[i] = allCards[randomSuit][randomCard];
 					allCards[randomSuit][randomCard] = " ";
 
-					System.out.print(player[i] + "| ");
+					System.out.print(player[i] + " | ");
 
 				}
 				System.out.println("");
 				System.out.println("");
 				j++;
 			}
-
+			} else 	System.out.println("Incorrect value!");
 		} else 	System.out.println("Incorrect value!");
 
 				
