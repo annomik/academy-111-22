@@ -32,7 +32,7 @@ public class Task1 {
 				if (letters[c] < 1) {
 					System.out.println("Строки - не перестановка символов");
 					return;
-					}
+					} 
 			}
 			System.out.println("Строки - перестановка символов");						
 		

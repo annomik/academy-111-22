@@ -4,34 +4,25 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Task0 {
-
-	// Complete the pairs function below.
+	
 	static int pairs(int k, int[] arr) {
 		int pairsCount = 0;
-		int pairsCount1 =0;
+		
 		// write code here
-			bubbleSort(arr);
+	
 		for (int i = 0; i < arr.length-1; i++) {
-			//for (int j = i+1; j < arr.length-1; j++ ) {
-				if (Math.abs(arr[i]-arr[i+1]) == k) {
+			for (int j = i+1; j < arr.length; j++) {
+				if (Math.abs(arr[i]-arr[j]) == k) {
 					pairsCount++;
 					}
-		}	
-		for (int j = 0; j < arr.length-2; j++) {
-				if (Math.abs(arr[j]-arr[j+2]) == k){
-					pairsCount1++;
-					}		
-				}
-			
-		return pairsCount+pairsCount1;
+				}	
+		}			
+		return pairsCount;
 		}
-
 	
 		private static void bubbleSort(int[] arr) {
 		// TODO Auto-generated method stub
-		
-	}
-
+		}
 
 		private static final Scanner scanner = new Scanner(System.in);
 
@@ -51,11 +42,11 @@ public class Task0 {
 
 			for (int i = 0; i < n; i++) {
 				arr[i] = Integer.parseInt(arrItems[i]);
-				System.out.println(arr[i]);
+				System.out.print(arr[i]+ " ");
 			}
 
 			int result = pairs(k, arr);
-			System.out.println("Result: "+result);
+			System.out.println("Result: "+result+" pairs");
 
 			scanner.close();
 		}
