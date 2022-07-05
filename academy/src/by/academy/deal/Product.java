@@ -6,14 +6,15 @@ public class Product {
 	private double price;
 	private int quantity;
 	private double tax;
+	private double calcPrice;
 	
 	public Product(String name, double price, int quantity, double tax) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
 		this.tax = tax;
+		//this.calcPrice = calcPrice;
 	}
-	
 	
 	
 	public Product() {
@@ -24,16 +25,38 @@ public class Product {
 	       return name;
 	   }
 	
-
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public double getTax() {
+		return tax ;
+	   }
 
-	public double setTax() {
+	public void setTax() {
 	       this.tax = 1.0;
 	   }
 		
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	
+	
+	
+	public double getCalcPrice() {
+		return calcPrice;
+	}
+
+
+	public void setCalcPrice(double calcPrice) {
+		this.calcPrice = calcPrice;
+	}
+
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -48,9 +71,7 @@ public class Product {
 		builder.append("]");
 		return builder.toString();
 	}
-
-	
-			
+				
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -88,10 +109,6 @@ public class Product {
 		return true;
 	}
 
-	
-	public double discount() {
-		price = price*tax;
-	}
 
 }
 
