@@ -2,19 +2,19 @@ package by.academy.classwork.lesson8;
 
 public class Phone {
 
-	String number;
-	String model;
-	double weight;
+	private String number;
+	private String model;
+	private double weight;
 
-	void receiveCall(String name){
+	public void receiveCall(String name){
 		System.out.println("Звонит "+name);
 	}
 
-	void receiveCall(String name, String number){
+	public void receiveCall(String name, String number){
 		System.out.println("Звонит "+ name+ " тел.: "+ number );
 	}
 
-	void sendMessage(String... args){
+	public void sendMessage(String... args){
 		for (String number : args) {
 		System.out.print(number + "  "  );
 		}
@@ -29,6 +29,7 @@ public class Phone {
 		this.model = model;
 	}
 
+	//з) Вызвать из конструктора с тремя параметрами конструктор с двумя.  
 	public Phone(String number, String model, double weight ) {
 		this(number, model );
 		this.weight = weight;
