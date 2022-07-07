@@ -6,14 +6,19 @@ public class Product {
 	private double price;
 	private int quantity;
 	private double tax;
-	private double calcPrice;
+	
+	
+	public double calcPrice(double price, int quantity ) {
+		return (price*quantity);
+	}
+	
 	
 	public Product(String name, double price, int quantity, double tax) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
 		this.tax = tax;
-		//this.calcPrice = calcPrice;
+		
 	}
 	
 	

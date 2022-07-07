@@ -13,8 +13,7 @@ public class Main {
 	Product apples = new Product("Apples", 7, 3, 1 );
 	
 	public printBill() {
-//		seller.name = "Bob";
-//		seller.money = 100; 
+//		 
 	
 	}
 		
