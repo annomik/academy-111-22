@@ -12,6 +12,9 @@ public class Product {
 		return (price*quantity);
 	}
 	
+	 public double discount() {
+		 return 1;
+	 }
 	
 	public Product(String name, double price, int quantity, double tax) {
 		this.name = name;
@@ -26,10 +29,31 @@ public class Product {
 		super();
 	}
 	
+
+	public double getCalcPrice() {
+		return calcPrice;
+	}
+
+
+	public void setCalcPrice(double calcPrice) {
+		this.calcPrice = calcPrice;
+	}
+
+	
+	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	public String getName() {
 	       return name;
 	   }
 	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -51,17 +75,7 @@ public class Product {
 	}
 	
 	
-	
-	public double getCalcPrice() {
-		return calcPrice;
-	}
-
-
-	public void setCalcPrice(double calcPrice) {
-		this.calcPrice = calcPrice;
-	}
-
-
+		
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

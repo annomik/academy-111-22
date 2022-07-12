@@ -11,9 +11,8 @@ public class Deal {
 			
 	
 	public Deal(User seller, User buyer, Product product, LocalDateTime buyTime) {
-		
-			
-	//	System.out.println(seller.money ) ;
+					
+		System.out.println(seller.getMoney() ) ;
 	}
 		
 		//full price
@@ -21,14 +20,13 @@ public class Deal {
 		//deal - высчитывает фулпрайс, запомнили дату
 		
 		//alt shift s 
-	protected double getProductPrice() {
-		return price * quantity * getDiscount();
+	
+	protected double fullPrice(Product product) {
+		return product.getPrice() * this.quantity * getTax();
 	}
 		
 		
 		public static void BillPrint(String... args) {
-			System.out.println("Banana: 1.523 x 100$ = 152.3$");
-			System.out.println("Banana: 1.523 x 100$ = 152.3$");
 			System.out.println("Banana: 1.523 x 100$ = 152.3$");
 			System.out.println("Banana: 1.523 x 100$ = 152.3$");
 			System.out.println("=============================");
