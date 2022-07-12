@@ -22,15 +22,19 @@ public class Deal {
 		//alt shift s 
 	
 	protected double fullPrice(Product product) {
-		return product.getPrice() * this.quantity * getTax();
+		return product.getPrice() *  product.getQuantity() *  product.getTax();
 	}
 		
 		
-		public static void BillPrint(String... args) {
-			System.out.println("Banana: 1.523 x 100$ = 152.3$");
-			System.out.println("Banana: 1.523 x 100$ = 152.3$");
-			System.out.println("=============================");
-			System.out.println("Full price: 1234$");	
+		public static void BillPrint(String... backet) {
+			for (String number : backet) {
+				System.out.print(number + "  "  );
+				}
+			
+			//System.out.println("Banana: 1.523 x 100$ = 152.3$");
+		//	System.out.println("Banana: 1.523 x 100$ = 152.3$");
+		//	System.out.println("=============================");
+		//	System.out.println("Full price: 1234$");	
 		}
 	
 

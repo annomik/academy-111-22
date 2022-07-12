@@ -13,7 +13,7 @@ public class User {
 		this.name = name;
 		this.money = money;
 	}
-		
+
 	
 	@Override
 	public String toString() {

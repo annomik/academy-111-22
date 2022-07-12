@@ -5,7 +5,9 @@ public class Cheese {
 	private int fatContent ;
 	private String country;
 	
-	
+	public double calcPrice(double price, int quantity ) {
+		return (price*quantity);
+	}
 	
 	public Cheese(int fatContent, String country) {
 		super();

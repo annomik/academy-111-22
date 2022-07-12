@@ -8,8 +8,8 @@ public class Product {
 	private double tax;
 	
 	
-	public double calcPrice(double price, int quantity ) {
-		return (price*quantity);
+	public double calcPrice(double price, int quantity, double tax ) {
+		return (product.getPrice()*product.getQuantity*tax);
 	}
 	
 	 public double discount() {
@@ -30,16 +30,6 @@ public class Product {
 	}
 	
 
-	public double getCalcPrice() {
-		return calcPrice;
-	}
-
-
-	public void setCalcPrice(double calcPrice) {
-		this.calcPrice = calcPrice;
-	}
-
-	
 	
 	public double getPrice() {
 		return price;

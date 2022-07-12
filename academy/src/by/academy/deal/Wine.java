@@ -5,6 +5,9 @@ public class Wine extends Product {
 	private int age;
 	private String color;
 	
+	public double calcPrice(double price, int quantity ) {
+		return (price*quantity);
+	}
 	
 	 public double discount() {
 		 if (this.color == "red") {
