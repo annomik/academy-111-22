@@ -1,5 +1,7 @@
 package by.academy.deal;
 
+import java.util.Scanner;
+
 public class Main {
 	
 	 public static void main(String[] args) {
@@ -23,9 +25,14 @@ public class Main {
 	System.out.println(roseWine.discount() ) ;
 	
 //	public printBill() {
-		System.out.println(bread.calcPrice(3.0, 1, 1.0)); 
+		System.out.println(bread.calcPrice(3.0, 1)); 
 	
-	//}
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Если хотите купить сыр  - введите цифру 1.");
+		System.out.println("Если хотите купить вино - введите цифру 2.");
+		System.out.println("Если хотите купить сыр  - введите цифру 3.");
+		int n = sc.nextInt();
+		
 		
 //	1. Необходимо реализовать программу, которая будет позволять вводить сделки купли-продажи товаров между двумя участниками.
 //	В каждой сделке может быть несколько товаров, сумма сделки рассчитывается из суммы всех товаров. 

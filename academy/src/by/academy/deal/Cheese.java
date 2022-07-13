@@ -1,6 +1,6 @@
 package by.academy.deal;
 
-public class Cheese {
+public class Cheese extends Product {
    
 	private int fatContent ;
 	private String country;
@@ -15,6 +15,12 @@ public class Cheese {
 		this.country = country;
 	}
 	
+	
+	public Cheese(String name, double price, int quantity, double tax) {
+		super(name, price, quantity, tax);
+		// TODO Auto-generated constructor stub
+	}
+
 	public Cheese() {
 		super();
 		// TODO Auto-generated constructor stub
