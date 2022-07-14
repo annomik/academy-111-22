@@ -1,31 +1,24 @@
 package by.academy.deal;
 
-public class Product {
+public abstract class Product {
 
 	private String name;
 	private double price;
 	private int quantity;
-	private double tax;
 	
 	
-//	public double calcPrice(double price, int quantity, double tax ) {
-//		return getPrice()*getQuantity()*getTax();
-//	}
 	
 	public double calcPrice(double price, int quantity) {
 		return getPrice()*getQuantity();
 	}
 	
-	 public double discount() {
-		 return 1;
-	 }
+	abstract public double discount() ;
 	
-	public Product(String name, double price, int quantity, double tax) {
+	public Product(String name, double price, int quantity) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
-		this.tax = tax;
-		
+			
 	}
 	
 	public Product() {
@@ -49,14 +42,7 @@ public class Product {
 		this.name = name;
 	}
 	
-	public double getTax() {
-		return tax ;
-	   }
-
-	public void setTax() {
-	       this.tax = 1.0;
-	   }
-		
+			
 	public int getQuantity() {
 		return quantity;
 	}
@@ -65,35 +51,10 @@ public class Product {
 		this.quantity = quantity;
 	}
 	
-	
 		
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Product [name=");
-		builder.append(name);
-		builder.append(", price=");
-		builder.append(price);
-		builder.append(", quantity=");
-		builder.append(quantity);
-		builder.append(", tax=");
-		builder.append(tax);
-		builder.append("]");
-		return builder.toString();
-	}
-				
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(price);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + quantity;
-		temp = Double.doubleToLongBits(tax);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
+		return "Product [name=" + name + ", price=" + price + ", quantity=" + quantity + "]";
 	}
 
 	@Override
@@ -114,11 +75,9 @@ public class Product {
 			return false;
 		if (quantity != other.quantity)
 			return false;
-		if (Double.doubleToLongBits(tax) != Double.doubleToLongBits(other.tax))
-			return false;
+		
 		return true;
 	}
-
 
 }
 

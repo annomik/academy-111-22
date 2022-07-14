@@ -14,18 +14,31 @@ public class Wine extends Product {
 			 return 0.5;
 		 } else
 		 {
-	return 1;
+			 return 1;
 		 }
 	 }
 	
-	public Wine(int age, String color) {
-		super();	
+	 
+	 public Wine(String name, double price, int quantity, int age, String color) {
+		super(name, price, quantity);
 		this.age = age;
 		this.color = color;
 	}
-	
-	public Wine(String name, double price, int quantity, double tax) {
-		super(name, price, quantity, tax);
+
+	 public Wine(int age, String color) {
+			super();
+			this.age = age;
+			this.color = color;
+		}
+ 
+	 
+	public Wine() {
+		super();
+		
+	}
+		
+	public Wine(String name, double price, int quantity) {
+		super(name, price, quantity);
 		
 	}
 	

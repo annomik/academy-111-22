@@ -9,9 +9,9 @@ public class Main {
 	User seller = new User("Bob", 200);
 	User buyer = new User("Nick", 100);	
 	
-	Product bread = new Product("Bread", 10, 2, 1 );
-	Product milk = new Product("Milk", 8, 1, 1 );
-	Product apples = new Product("Apples", 7, 3, 1 );
+//	Product bread = new Product("Bread", 10, 2);
+//	Product milk = new Product("Milk", 8, 1);
+//	Product apples = new Product("Apples", 7, 3 );
 	
 	 Cheese feta = new Cheese(35, "Belarus");
 	 Cheese parmezan = new Cheese(50, "Italy");
@@ -24,23 +24,79 @@ public class Main {
 	System.out.println(redWine.discount() ) ;
 	System.out.println(roseWine.discount() ) ;
 	
-//	public printBill() {
-		System.out.println(bread.calcPrice(3.0, 1)); 
-	
+
+		System.out.println(suluguni.calcPrice(3.0, 1)); 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Если хотите купить сыр  - введите цифру 1.");
-		System.out.println("Если хотите купить вино - введите цифру 2.");
-		System.out.println("Если хотите купить сыр  - введите цифру 3.");
-		int n = sc.nextInt();
 		
-		
-//	1. Необходимо реализовать программу, которая будет позволять вводить сделки купли-продажи товаров между двумя участниками.
-//	В каждой сделке может быть несколько товаров, сумма сделки рассчитывается из суммы всех товаров. 
-//	Сумма каждого товара рассчитывается из его стоимости и количества.
-//	Программа должна позволить ввести информацию о сделках, сохранить ее в памяти и вывести на экран.
-//	Ввод информацию осуществляется с экрана (консоли). 
-//	Количество дополнительной информацию о сделке, участнике, товаре придумать самому (больше одного поля для класса). 
-//	Сделка должна содержать массив продуктов
+	int n =0;	
 	
+	do {	
+		
+		System.out.println("Если хотите купить сыр    - введите цифру 1.");
+		System.out.println("Если хотите купить вино   - введите цифру 2.");
+		System.out.println("Если хотите купить фрукты - введите цифру 3.");
+		int number = sc.nextInt();
+			
+	if (number == 1) {
+		System.out.println("Выберите сыр: 1 - сыр Фета; 2 - сыр Пармезан; 3 - сыр Сулугуни");
+		int cheese = sc.nextInt();
+		System.out.println("Выберите количество");
+		if (sc.hasNextInt() ) {
+			int amountCheese = sc.nextInt();
+			}
+		else System.out.println("Некорректные данные");
+	}
+		
+	else  if (number == 2) {
+			System.out.println("Выберите вино: 1 - Красное вино; 2 -Розовое вино; 3 - Белое вино");
+			int wine = sc.nextInt();
+			System.out.println("Выберите количество");
+			if (sc.hasNextInt() ) {
+				int amountWine = sc.nextInt();
+				}
+			else System.out.println("Некорректные данные");
+			
+	 }	else if (number == 3) {
+		 	System.out.println("Выберите фрукты: 1 - Банан; 2 - Авокадо; 3 - Апельсин");
+		 	int fruit = sc.nextInt();
+		 	System.out.println("Выберите количество");
+		 	if (sc.hasNextInt() ) {
+		 		int amountFruit = sc.nextInt();
+		 		}
+		 	else System.out.println("Некорректные данные");
+		}
+	//for (int i )
+	
+	System.out.println("Введите 1, если хотите продолжить покупки.");
+	System.out.println("Введите 2, если хотите оформить заказ.");
+	n = sc.nextInt();
+	
+	} while (n == 1);
+	
+	
+	
+//	switch (number) {		 
+//	case 1 : {	
+//		System.out.println("Выберите сыр: 1 - сыр Фета; 2 - сыр Пармезан; 3 - сыр Сулугуни");
+//		int cheese = sc.nextInt();
+//		System.out.println("Выберите количество");
+//		break;
+//	}
+//	case 2 : {	
+//		System.out.println("Выберите вино: 1 - Красное вино; 2 -Розовое вино; 3 - Белое вино");
+//		break;
+//	}
+//	case 3 : {	
+//		System.out.println("Выберите фрукты: 1 - Бананы; 2 - Авокадо; 3 - Апельсин");
+//		break;
+//	}
+//	
+//	default: System.out.println("Некорректно введенные данные!");
+//
+//	}
+	 
+	sc.close();
+	
+//	public printBill() {	
 	}
 }

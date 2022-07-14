@@ -5,6 +5,15 @@ public class Cheese extends Product {
 	private int fatContent ;
 	private String country;
 	
+	public double discount() {
+		 if (this.fatContent > 40) {
+			 return 0.8;
+		 } else
+		 	{
+			 return 1;
+		 	}
+	 }
+	
 	public double calcPrice(double price, int quantity ) {
 		return (price*quantity);
 	}
@@ -16,15 +25,13 @@ public class Cheese extends Product {
 	}
 	
 	
-	public Cheese(String name, double price, int quantity, double tax) {
-		super(name, price, quantity, tax);
-		// TODO Auto-generated constructor stub
-	}
+	public Cheese(String name, double price, int quantity) {
+		super(name, price, quantity);
+		}
 
 	public Cheese() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
+		}
 	
 	@Override
 	public String toString() {

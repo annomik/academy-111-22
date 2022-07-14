@@ -8,26 +8,32 @@ public class Fruit extends Product  {
 	private boolean ripeness;
 	
 	
-	//avocado, banana, lemon
+	//avocado, banana, orange
+	
+	public double discount() {
+		 if (this.ripeness = false) {
+			 return 0.8;
+		 } else
+		 	{
+			 return 1;
+		 	}
+	 }
+	
 	public Fruit()  {
 		super();
 	}
 
+	
+	public Fruit(String name, double price, int quantity) {
+		super(name, price, quantity);
+		}
 
 	
-	public Fruit(String name, double price, int quantity, double tax) {
-		super(name, price, quantity, tax);
-		// TODO Auto-generated constructor stub
-	}
-
-	
-
-	public Fruit(String name, double price, int quantity, double tax, String growingCountry, boolean ripeness) {
-		super(name, price, quantity, tax);
+	public Fruit(String name, double price, int quantity, String growingCountry, boolean ripeness) {
+		super(name, price, quantity);
 		this.growingCountry = growingCountry;
 		this.ripeness = ripeness;
 	}
-
 
 
 	public String getGrowingCountry() {
@@ -35,30 +41,24 @@ public class Fruit extends Product  {
 	}
 
 
-
 	public void setGrowingCountry(String growingCountry) {
 		this.growingCountry = growingCountry;
 	}
-
 
 
 	public boolean isRipeness() {
 		return ripeness;
 	}
 
-
-
 	public void setRipeness(boolean ripeness) {
 		this.ripeness = ripeness;
 	}
-
 
 
 	@Override
 	public String toString() {
 		return "Fruit [growingCountry=" + growingCountry + ", ripeness=" + ripeness + "]";
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -80,6 +80,5 @@ public class Fruit extends Product  {
 		Fruit other = (Fruit) obj;
 		return Objects.equals(growingCountry, other.growingCountry) && ripeness == other.ripeness;
 	}
-
 	
 }
