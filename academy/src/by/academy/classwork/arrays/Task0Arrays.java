@@ -1,4 +1,4 @@
-package by.academy.classwork.lesson4;
+package by.academy.classwork.arrays;
 
 public class Task0Arrays {
 
@@ -11,15 +11,21 @@ public class Task0Arrays {
 		String [] weekdays = new String[7] ;
 		weekdays[0] = "Monday";
 		weekdays[1] = "Tuesday";
-		weekdays[2] = "Wednessday";
-		
+		weekdays[2] = "Wednesday";
+		weekdays[3] = "Thursday";
 		weekdays[4] = "Friday";
 		weekdays[5] = "Saturday";
 		weekdays[6] = "Sunday";
-		weekdays[6] = "Thursday";
-		
-	
+					
 		System.out.println(weekdays[6]);
+		
+//	1. Создать массив типа double с размером 4.
+//	 Записать в него любые значения с помощью блока для инициализации. 
+//	 Вывести на консоль значение первого элемента
+		
+	double [] arr = {81,4,11,66};
+	System.out.println(arr[0]);
+		
 		
 	}
 }
