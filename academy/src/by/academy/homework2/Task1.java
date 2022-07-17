@@ -28,8 +28,8 @@ public class Task1 {
 			
 			for (int i = 0; i < first.length(); i++) {
 				int c = (int) second.charAt(i);
-				
-				if (letters[c] < 1) {
+			
+				if (--letters[c] < 0) {
 					System.out.println("Строки - не перестановка символов");
 					return;
 					} 
