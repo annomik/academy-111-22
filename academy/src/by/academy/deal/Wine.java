@@ -17,8 +17,7 @@ public class Wine extends Product {
 			 return 1;
 		 }
 	 }
-	
-	 
+ 
 	 public Wine(String name, double price, int quantity, int age, String color) {
 		super(name, price, quantity);
 		this.age = age;
@@ -30,16 +29,13 @@ public class Wine extends Product {
 			this.age = age;
 			this.color = color;
 		}
- 
-	 
+ 	 
 	public Wine() {
 		super();
-		
 	}
 		
 	public Wine(String name, double price, int quantity) {
 		super(name, price, quantity);
-		
 	}
 	
 	public int getAge() {

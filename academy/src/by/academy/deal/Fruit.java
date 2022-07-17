@@ -12,7 +12,7 @@ public class Fruit extends Product  {
 	
 	public double discount() {
 		 if (this.ripeness = false) {
-			 return 0.8;
+			 return 0.9;
 		 } else
 		 	{
 			 return 1;

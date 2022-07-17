@@ -30,16 +30,17 @@ public class User {
 	       return name;
 	   }
 			
-	public String getMoney() {
-	       return name;
-	   }
-	
-	public void setName(String name) {
-		this.name = name;
+		
+	public double getMoney() {
+		return money;
 	}
 
 	public void setMoney(double money) {
 		this.money = money;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override

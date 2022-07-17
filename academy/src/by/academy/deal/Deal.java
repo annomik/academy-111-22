@@ -1,42 +1,77 @@
 package by.academy.deal;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Deal {
 	
 	private User seller;
 	private User buyer;
 	private LocalDateTime buyTime;
-	private Product [] backet;
-			
+	private Product [] basket;
+	private int index = 0;		
 	
-	public Deal(User seller, User buyer, Product product, LocalDateTime buyTime) {
-					
-		System.out.println(seller.getMoney() ) ;
+	public Deal() {
+		super();
+		this.basket = new Product[10];
+		//System.out.println(seller.getMoney() ) ;
+	}
+	
+	public void grow() {
+		int newLength = (int) (basket.length == 0 ? 1 : basket.length*1.5);
+		Product [] newBasket = new Product[newLength];
+		System.arraycopy(basket, 0, newBasket, 0, basket.length);
+		basket = newBasket;
+	}
+	
+	public void addProduct(Product product) {
+		if (index == basket.length) {
+			grow();
+		} 
+			basket[index++] = product; 
+		}
+	
+	public Product getProduct(int productIndex) {
+		return basket[productIndex];
+	}
+	
+	public void removeProduct(int index) {
+		
 	}
 		
-		//full price
 		//bill- чек   метод
 		//deal - высчитывает фулпрайс, запомнили дату
-		
 		//alt shift s меню 
 	
-	protected double calcFinalPrice(Product product) {
-		return product.getPrice() *  product.getQuantity() *  product.discount();
-	}
-		
-		
-		public static void BillPrint(String... backet) {
-			for (String number : backet) {
-				System.out.print(number + "  "  );
-				}
-		}	
+//	protected double calcFinalPrice(Product product) {
+//		return product.getPrice() *  product.getQuantity() *  product.discount();
+//	}
+	
+	public void BillPrint(String... backet) {
+		System.out.println("Bill:");
+		for (Product p : basket) {
+			System.out.println(p.getName() + " price: "+p.calcFinalPrice());
+			}
+		System.out.println("-----------------------------");
+		System.out.println("Full price: " + calcFullPrice());
+	}	
 
-	public Deal(User seller, User buyer, Product[] backet, LocalDateTime buyTime) {
+	public double calcFullPrice() {
+		double fullPrice = 0;
+		if (basket != null) {
+			for (Product p : basket) {
+				fullPrice += p.calcFinalPrice();
+			}
+		}
+		return fullPrice;
+	}	
+	
+	public Deal(User seller, User buyer, Product[] basket, LocalDateTime buyTime) {
 		super();
 		this.seller = seller;
 		this.buyer = buyer;
-		this.backet = backet;
+		this.basket = basket;
 		this.buyTime = buyTime;
 	}
 
@@ -44,40 +79,71 @@ public class Deal {
 		return seller;
 	}
 
-
 	public void setSeller(User seller) {
 		this.seller = seller;
 	}
-
 
 	public User getBuyer() {
 		return buyer;
 	}
 
-
 	public void setBuyer(User buyer) {
 		this.buyer = buyer;
 	}
-
 
 	public LocalDateTime getBuyTime() {
 		return buyTime;
 	}
 
-
 	public void setBuyTime(LocalDateTime buyTime) {
 		this.buyTime = buyTime;
 	}
-
-
-	public Product[] getBacket() {
-		return backet;
+		
+	public Product[] getBasket() {
+		return basket;
 	}
 
-
-	public void setBacket(Product[] backet) {
-		this.backet = backet;
+	public void setBasket(Product[] basket) {
+		this.basket = basket;
 	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+	@Override
+	public String toString() {
+		return "Deal [seller=" + seller + ", buyer=" + buyer + ", buyTime=" + buyTime + ", basket="
+				+ Arrays.toString(basket) + ", index=" + index + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(basket);
+		result = prime * result + Objects.hash(buyTime, buyer, index, seller);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Deal other = (Deal) obj;
+		return Arrays.equals(basket, other.basket) && Objects.equals(buyTime, other.buyTime)
+				&& Objects.equals(buyer, other.buyer) && index == other.index && Objects.equals(seller, other.seller);
+	}
+
+	
 	
 }
 	
