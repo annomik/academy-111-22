@@ -15,7 +15,6 @@ public class Deal {
 	public Deal() {
 		super();
 		this.basket = new Product[10];
-		//System.out.println(seller.getMoney() ) ;
 	}
 	
 	public void grow() {
@@ -25,11 +24,11 @@ public class Deal {
 		basket = newBasket;
 	}
 	
-	public void addProduct(Product product) {
+	public void addProduct(Product basket, int m) {
 		if (index == basket.length) {
 			grow();
 		} 
-			basket[index++] = product; 
+			basket[index++] = getProduct(index); 
 		}
 	
 	public Product getProduct(int productIndex) {
@@ -39,40 +38,42 @@ public class Deal {
 	public void removeProduct(int index) {
 		
 	}
-		
-		//bill- чек   метод
 		//deal - высчитывает фулпрайс, запомнили дату
 		//alt shift s меню 
-	
-//	protected double calcFinalPrice(Product product) {
-//		return product.getPrice() *  product.getQuantity() *  product.discount();
-//	}
-	
-	public void BillPrint(String... backet) {
-		System.out.println("Bill:");
-		for (Product p : basket) {
-			System.out.println(p.getName() + " price: "+p.calcFinalPrice());
-			}
+
+	public void BillPrint(Deal deal) {
+		System.out.println("---------- Чек ---------");
+		for (int i = 0; i < deal.basket.length; i++) {
+			if (deal.basket[i] != null) {
+			System.out.println((i+1)+"."+deal.basket[i].getName() + " --стоимость: "+deal.basket[i].calcFinalPrice(basket[i]));
+				}
+		}
 		System.out.println("-----------------------------");
-		System.out.println("Full price: " + calcFullPrice());
+		System.out.println("Итого: " + calcFullPrice(deal.basket));
+		System.out.println("--- Спасибо за покупку! ---");
+		
+		 deal.seller.setMoney(deal.seller.getMoney() + calcFullPrice(basket));
+	     deal.buyer.setMoney(deal.buyer.getMoney() - calcFullPrice(basket));
 	}	
 
-	public double calcFullPrice() {
+	public double calcFullPrice(Product [] basket) {
 		double fullPrice = 0;
-		if (basket != null) {
-			for (Product p : basket) {
-				fullPrice += p.calcFinalPrice();
+		for (int i = 0; i < basket.length; i++) {
+			if (basket[i] != null) {
+				fullPrice += basket[i].calcFinalPrice(basket[i]);
 			}
 		}
 		return fullPrice;
 	}	
 	
-	public Deal(User seller, User buyer, Product[] basket, LocalDateTime buyTime) {
+	
+
+	public Deal(User seller, User buyer, Product[] basket) {
 		super();
 		this.seller = seller;
 		this.buyer = buyer;
 		this.basket = basket;
-		this.buyTime = buyTime;
+		//this.index = index;
 	}
 
 	public User getSeller() {

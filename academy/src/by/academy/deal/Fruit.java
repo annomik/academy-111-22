@@ -8,8 +8,6 @@ public class Fruit extends Product  {
 	private boolean ripeness;
 	
 	
-	//avocado, banana, orange
-	
 	public double discount() {
 		 if (this.ripeness = false) {
 			 return 0.9;

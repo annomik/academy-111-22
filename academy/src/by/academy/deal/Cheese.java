@@ -7,7 +7,7 @@ public class Cheese extends Product {
 	
 	public double discount() {
 		 if (this.fatContent > 40) {
-			 return 0.8;
+			 return 0.5;
 		 } else
 		 	{
 			 return 1;
@@ -24,6 +24,11 @@ public class Cheese extends Product {
 		this.country = country;
 	}
 	
+	public Cheese(String name, double price, int quantity, int fatContent, String country) {
+		super(name, price, quantity);
+		this.fatContent = fatContent;
+		this.country = country;
+		}
 	
 	public Cheese(String name, double price, int quantity) {
 		super(name, price, quantity);

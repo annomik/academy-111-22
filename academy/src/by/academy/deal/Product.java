@@ -2,15 +2,15 @@ package by.academy.deal;
 
 public abstract class Product {
 
-	private String name;
-	private double price;
-	private int quantity;
+	protected String name;
+	protected double price;
+	protected int quantity;
 	
-	public double calcFinalPrice() {
-		return getPrice()*getQuantity()*discount();
+	public double calcFinalPrice(Product product) {
+		return product.price * product.quantity * discount();
 	}
 	
-	public double calcPrice() {
+	public double calcPrice() {  
 		return getPrice()*getQuantity();
 	}
 
@@ -37,12 +37,10 @@ public abstract class Product {
 	public String getName() {
 	       return name;
 	   }
-	
 
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 			
 	public int getQuantity() {
 		return quantity;
