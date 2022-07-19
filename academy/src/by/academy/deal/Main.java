@@ -1,30 +1,27 @@
 package by.academy.deal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Main {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 	
-	Product [] basket = null;	
+	Product [] basket = new Product[10];	
 	
 	User seller = new User("Bob", 500);
 	User buyer = new User("Nick", 500);	
 	
-//	String [] storage = new String [9];
-//	public void BillPrint(String... basket) {
-//		for (Product p : deal.getBacket()) {
-//			System.out.println(number + "  "  );
-//			}
-//	}		
 	
 	Cheese feta = new Cheese("Фета",10, 1 ,35, "Belarus");
 	Cheese parmezan = new Cheese("Пармезан", 14,1, 50, "Italy");
 	Cheese suluguni = new Cheese("Сулугуни", 9, 1, 30, "Gergia");
 	
-	Wine redWine = new Wine("Красное вино",100, 1, 5, "red");
+	Wine redWine = new Wine("Красное вино",160, 1, 5, "red");
 	Wine roseWine = new Wine("Розовое вино",90, 1, 2, "rose");
-	Wine whiteWine = new Wine("Белое вино", 200, 1,7, "white");
+	Wine whiteWine = new Wine("Белое вино", 220, 1,7, "white");
 	
 	Fruit banana = new Fruit("Банан", 5, 1, "Пакистан", true);
 	Fruit avocado = new Fruit("Авокадо", 12, 1, "Перу", false);
@@ -33,20 +30,25 @@ public class Main {
 	System.out.println("Скидка на красное: "+redWine.discount() ) ;
 	System.out.println("Скидка на розовое: "+roseWine.discount() ) ;
 //	System.out.println(suluguni.calcPrice()); 
-		
+			
 	Scanner sc = new Scanner(System.in);
+	
 		
-	int n = 0;	
+	
+	int number1;	
 	int m = 0;
 	do {	
-		;
+		
 		System.out.println("Выберите сыр: 1 - сыр Фета; 2 - сыр Пармезан; 3 - сыр Сулугуни.");
 		System.out.println("Выберите вино: 4 - Красное вино; 5 -Розовое вино; 6 - Белое вино.");
-		System.out.println("Выберите фрукты: 7 - Банан; 8 - Авокадо; 9 - Апельсин.");
-			//	+ "	\n ---Введите любое другое число, если хотите завершить покупки---");
-		int number = sc.nextInt();
+		System.out.println("Выберите фрукты: 7 - Банан; 8 - Авокадо; 9 - Апельсин."
+				+ "	\n ---Введите 0, если хотите завершить покупки---");
+		number1 = sc.nextInt();
 		
-		switch (number) {		 
+		if (number1 == 0) 
+			{ break;}
+		
+		switch (number1) {		 
 		case 1 : {
 			basket[m] = feta;
 			break;
@@ -85,25 +87,43 @@ public class Main {
 		}
 		default: System.out.println("Некорректно введенные данные!");
 		}
-			
-		System.out.println("Введите 0, если хотите продолжить покупки.");
-		System.out.println("Введите любое другое число, если хотите завершить покупки.");
-		n = sc.nextInt();
-	
+
+	// System.out.println("Товар добавлен в корзину.");
+		
 		m++;
-	} while (n == 0);
+	} while ((number1 > 0) && (number1 < 10));
 	
 	Deal deal = new Deal(seller, buyer, basket) ;
 	for (int i = 0; i < basket.length; i++) {
-		deal.addProduct(basket[m], m );
+		deal.addProduct(basket[i]);
 		}
-	//System.out.println(deal);
+//	System.out.println(deal);
 	
 	deal.setBuyer(buyer);
 	deal.setSeller(seller);
-	
+			
 	deal.BillPrint(deal);
-	 
+	
+    SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy");	
+//	
+//	Date date = new Date();	 
+//	System.out.println("Введите свою дату рождения в формате: dd/MM/yyyy или dd-MM-yyyy"); 
+//	String dateBirth = sc.next();
+//	 while (true) {	
+//		
+//		if (date.test(dateBirth)) {
+//			SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
+//			java.util.Date date1	= format1.parse(dateBirth);
+//			//Calendar calendar = Calendar.getInstance();
+//           // calendar.setTime(date1);
+//			System.out.println(date1);
+//		}
+//	 }
+	
+	
+	
+	
+	
 	sc.close();
 	
 

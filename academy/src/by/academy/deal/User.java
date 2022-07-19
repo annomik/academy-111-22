@@ -4,6 +4,8 @@ public class User {
 
 	private String name;
 	private double money;
+	private String dateOfBirth;
+	
 	
 	public User() {
 		super();
@@ -13,23 +15,25 @@ public class User {
 		this.name = name;
 		this.money = money;
 	}
-
 	
+	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User [name=");
-		builder.append(name);
-		builder.append(", money=");
-		builder.append(money);
-		builder.append("]");
-		return builder.toString();
+		return "User [name=" + name + ", money=" + money + ", dateOfBirth=" + dateOfBirth + "]";
 	}
-	
+
 	public String getName() {
 	       return name;
 	   }
-			
+		
 		
 	public double getMoney() {
 		return money;

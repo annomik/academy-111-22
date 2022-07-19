@@ -24,11 +24,11 @@ public class Deal {
 		basket = newBasket;
 	}
 	
-	public void addProduct(Product basket, int m) {
+	public void addProduct(Product product) {
 		if (index == basket.length) {
 			grow();
 		} 
-			basket[index++] = getProduct(index); 
+			basket[index++] = product; 
 		}
 	
 	public Product getProduct(int productIndex) {
@@ -36,24 +36,36 @@ public class Deal {
 	}
 	
 	public void removeProduct(int index) {
-		
+		 int newLenght = (int) (basket.length == 0 ? 1 : basket.length - 1);
+	        Product[] newBasket = new Product[newLenght];
+	        System.arraycopy(basket, 0, newBasket, 0, index);
+	        System.arraycopy(basket, index + 1, newBasket, index, basket.length - index - 1);
+	        basket = newBasket;
 	}
 		//deal - высчитывает фулпрайс, запомнили дату
 		//alt shift s меню 
 
 	public void BillPrint(Deal deal) {
+		System.out.println("Покупатель: " + deal.seller.getName());
+		if (seller.getMoney() < calcFullPrice(basket)){
+	            System.out.println("У Вас недостаточно средств для покупки");
+	            return;
+	    } else
+	     {	             
 		System.out.println("---------- Чек ---------");
 		for (int i = 0; i < deal.basket.length; i++) {
 			if (deal.basket[i] != null) {
-			System.out.println((i+1)+"."+deal.basket[i].getName() + " --стоимость: "+deal.basket[i].calcFinalPrice(basket[i]));
+			System.out.println((i+1)+"."+deal.basket[i].getName() + " --стоимость: " +
+								 deal.basket[i].calcFinalPrice(basket[i]) + " руб.");
 				}
 		}
 		System.out.println("-----------------------------");
-		System.out.println("Итого: " + calcFullPrice(deal.basket));
+		System.out.println("Итого: " + calcFullPrice(deal.basket)+ " руб.");
 		System.out.println("--- Спасибо за покупку! ---");
-		
-		 deal.seller.setMoney(deal.seller.getMoney() + calcFullPrice(basket));
-	     deal.buyer.setMoney(deal.buyer.getMoney() - calcFullPrice(basket));
+	    }
+		deal.seller.setMoney(deal.seller.getMoney() + calcFullPrice(basket));
+	    deal.buyer.setMoney(deal.buyer.getMoney() - calcFullPrice(basket));
+	    System.out.println("У вас осталось: " +deal.buyer.getMoney()+ " руб.");
 	}	
 
 	public double calcFullPrice(Product [] basket) {
