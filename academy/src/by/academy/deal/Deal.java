@@ -14,7 +14,7 @@ public class Deal {
 	
 	public Deal() {
 		super();
-		this.basket = new Product[10];
+		this.basket = new Product[5];
 	}
 	
 	public void grow() {
@@ -29,6 +29,7 @@ public class Deal {
 			grow();
 		} 
 			basket[index++] = product; 
+			System.out.println("Продукт добавлен в корзину");
 		}
 	
 	public Product getProduct(int productIndex) {
@@ -46,7 +47,7 @@ public class Deal {
 		//alt shift s меню 
 
 	public void BillPrint(Deal deal) {
-		System.out.println("Покупатель: " + deal.seller.getName());
+		System.out.println("Покупатель: " + deal.seller.getName() + ". Сумма в кошелке: " + deal.seller.getMoney());
 		if (seller.getMoney() < calcFullPrice(basket)){
 	            System.out.println("У Вас недостаточно средств для покупки");
 	            return;
@@ -77,8 +78,6 @@ public class Deal {
 		}
 		return fullPrice;
 	}	
-	
-	
 
 	public Deal(User seller, User buyer, Product[] basket) {
 		super();

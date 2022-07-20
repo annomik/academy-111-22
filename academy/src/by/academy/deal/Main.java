@@ -9,7 +9,7 @@ public class Main {
 	
 	public static void main(String[] args) throws ParseException {
 	
-	Product [] basket = new Product[10];	
+	
 	
 	User seller = new User("Bob", 500);
 	User buyer = new User("Nick", 500);	
@@ -32,76 +32,74 @@ public class Main {
 //	System.out.println(suluguni.calcPrice()); 
 			
 	Scanner sc = new Scanner(System.in);
-	
 		
+	Deal deal = new Deal() ;	
+	deal.setBuyer(buyer);
+	deal.setSeller(seller);
 	
-	int number1;	
+	int number;	
 	int m = 0;
-	do {	
-		
+	do {			
 		System.out.println("Выберите сыр: 1 - сыр Фета; 2 - сыр Пармезан; 3 - сыр Сулугуни.");
 		System.out.println("Выберите вино: 4 - Красное вино; 5 -Розовое вино; 6 - Белое вино.");
 		System.out.println("Выберите фрукты: 7 - Банан; 8 - Авокадо; 9 - Апельсин."
 				+ "	\n ---Введите 0, если хотите завершить покупки---");
-		number1 = sc.nextInt();
 		
-		if (number1 == 0) 
+		number = sc.nextInt();
+		
+		if (number == 0) 
 			{ break;}
 		
-		switch (number1) {		 
+		switch (number) {		 
 		case 1 : {
-			basket[m] = feta;
+			deal.addProduct(feta);
 			break;
 		}
 		case 2 : {	
-			basket[m] = parmezan;
+			deal.addProduct(parmezan);
 			break;
 		}
 		case 3 : {
-			basket[m] = suluguni;
+			deal.addProduct(suluguni);
 			break;
 		}
 		case 4 : {	
-			basket[m] = redWine;
+			deal.addProduct(redWine);
 			break;
 		}
 		case 5 : {
-			basket[m] = roseWine;
+			deal.addProduct(roseWine);
 			break;
 		}
 		case 6 : {	
-			basket[m] = whiteWine;
+			deal.addProduct(whiteWine);
 			break;
 		}			
 		case 7 : {
-			basket[m] = banana;
+			deal.addProduct(banana);
 			break;
 		}
 		case 8 : {	
-			basket[m] = avocado;
+			deal.addProduct(avocado);
 			break;
 		}
 		case 9 : {	
-			basket[m] = orange;
+			deal.addProduct(orange);
 			break;
 		}
-		default: System.out.println("Некорректно введенные данные!");
-		}
-
-	// System.out.println("Товар добавлен в корзину.");
-		
+	default: System.out.println("Некорректно введенные данные!");
+	}
+	
 		m++;
-	} while ((number1 > 0) && (number1 < 10));
+		
+	} while ((number > 0) && (number < 10));
 	
-	Deal deal = new Deal(seller, buyer, basket) ;
-	for (int i = 0; i < basket.length; i++) {
-		deal.addProduct(basket[i]);
-		}
+	
+//	for (int i = 0; i < basket.length; i++) {
+//		deal.addProduct(basket[i]);
+//		}
 //	System.out.println(deal);
-	
-	deal.setBuyer(buyer);
-	deal.setSeller(seller);
-			
+					
 	deal.BillPrint(deal);
 	
     SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy");	
