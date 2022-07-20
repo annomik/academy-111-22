@@ -1,4 +1,4 @@
-package by.academy.homework3;
+package by.academy.deal;
 
 public class Cheese extends Product {
    
