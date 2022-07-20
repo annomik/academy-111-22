@@ -17,6 +17,7 @@ public class Deal {
 		this.basket = new Product[5];
 	}
 	
+	
 	public void grow() {
 		int newLength = (int) (basket.length == 0 ? 1 : basket.length*1.5);
 		Product [] newBasket = new Product[newLength];
