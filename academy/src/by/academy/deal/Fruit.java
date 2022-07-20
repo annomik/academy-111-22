@@ -1,4 +1,4 @@
-package by.academy.deal;
+package by.academy.homework3;
 
 import java.util.Objects;
 
